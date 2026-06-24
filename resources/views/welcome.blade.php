@@ -1,154 +1,449 @@
-
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html class="scroll-smooth" lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600&display=swap" rel="stylesheet" />
-
-    <!-- Styles / Scripts -->
-    @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @else
-        <style>
-            /*! tailwindcss v4.0.7 | MIT License | https://tailwindcss.com */
-            @layer theme {:root,:host{--font-sans:'Instrument Sans',ui-sans-serif,system-ui,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";--font-serif:ui-serif,Georgia,Cambria,"Times New Roman",Times,serif;--font-mono:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;--color-red-50:oklch(.971 .013 17.38);--color-red-100:oklch(.936 .032 17.717);--color-red-200:oklch(.885 .062 18.334);--color-red-300:oklch(.808 .114 19.571);--color-red-400:oklch(.704 .191 22.216);--color-red-500:oklch(.637 .237 25.331);--color-red-600:oklch(.577 .245 27.325);--color-red-700:oklch(.505 .213 27.518);--color-red-800:oklch(.444 .177 26.899);--color-red-900:oklch(.396 .141 25.723);--color-red-950:oklch(.258 .092 26.042);--color-orange-50:oklch(.98 .016 73.684);--color-orange-100:oklch(.954 .038 75.164);--color-orange-200:oklch(.901 .076 70.697);--color-orange-300:oklch(.837 .128 66.29);--color-orange-400:oklch(.75 .183 55.934);--color-orange-500:oklch(.705 .213 47.604);--color-orange-600:oklch(.646 .222 41.116);--color-orange-700:oklch(.553 .195 38.402);--color-orange-800:oklch(.47 .157 37.304);--color-orange-900:oklch(.408 .123 38.172);--color-orange-950:oklch(.266 .079 36.259);--color-amber-50:oklch(.987 .022 95.277);--color-amber-100:oklch(.962 .059 95.617);--color-amber-200:oklch(.924 .12 95.746);--color-amber-300:oklch(.879 .169 91.605);--color-amber-400:oklch(.828 .189 84.429);--color-amber-500:oklch(.769 .188 70.08);--color-amber-600:oklch(.666 .179 58.318);--color-amber-700:oklch(.555 .163 48.998);--color-amber-800:oklch(.473 .137 46.201);--color-amber-900:oklch(.414 .112 45.904);--color-amber-950:oklch(.279 .077 45.635);--color-yellow-50:oklch(.987 .026 102.212);--color-yellow-100:oklch(.973 .071 103.193);--color-yellow-200:oklch(.945 .129 101.54);--color-yellow-300:oklch(.905 .182 98.111);--color-yellow-400:oklch(.852 .199 91.936);--color-yellow-500:oklch(.795 .184 86.047);--color-yellow-600:oklch(.681 .162 75.834);--color-yellow-700:oklch(.554 .135 66.442);--color-yellow-800:oklch(.476 .114 61.907);--color-yellow-900:oklch(.421 .095 57.708);--color-yellow-950:oklch(.286 .066 53.813);--color-lime-50:oklch(.986 .031 120.757);--color-lime-100:oklch(.967 .067 122.328);--color-lime-200:oklch(.938 .127 124.321);--color-lime-300:oklch(.897 .196 126.665);--color-lime-400:oklch(.841 .238 128.85);--color-lime-500:oklch(.768 .233 130.85);--color-lime-600:oklch(.648 .2 131.684);--color-lime-700:oklch(.532 .157 131.589);--color-lime-800:oklch(.453 .124 130.933);--color-lime-900:oklch(.405 .101 131.063);--color-lime-950:oklch(.274 .072 132.109);--color-green-50:oklch(.982 .018 155.826);--color-green-100:oklch(.962 .044 156.743);--color-green-200:oklch(.925 .084 155.995);--color-green-300:oklch(.871 .15 154.449);--color-green-400:oklch(.792 .209 151.711);--color-green-500:oklch(.723 .219 149.579);--color-green-600:oklch(.627 .194 149.214);--color-green-700:oklch(.527 .154 150.069);--color-green-800:oklch(.448 .119 151.328);--color-green-900:oklch(.393 .095 152.535);--color-green-950:oklch(.266 .065 152.934);--color-emerald-50:oklch(.979 .021 166.113);--color-emerald-100:oklch(.95 .052 163.051);--color-emerald-200:oklch(.905 .093 164.15);--color-emerald-300:oklch(.845 .143 164.978);--color-emerald-400:oklch(.765 .177 163.223);--color-emerald-500:oklch(.696 .17 162.48);--color-emerald-600:oklch(.596 .145 163.225);--color-emerald-700:oklch(.508 .118 165.612);--color-emerald-800:oklch(.432 .095 166.913);--color-emerald-900:oklch(.378 .077 168.94);--color-emerald-950:oklch(.262 .051 172.552);--color-teal-50:oklch(.984 .014 180.72);--color-teal-100:oklch(.953 .051 180.801);--color-teal-200:oklch(.91 .096 180.426);--color-teal-300:oklch(.855 .138 181.071);--color-teal-400:oklch(.777 .152 181.912);--color-teal-500:oklch(.704 .14 182.503);--color-teal-600:oklch(.6 .118 184.704);--color-teal-700:oklch(.511 .096 186.391);--color-teal-800:oklch(.437 .078 188.216);--color-teal-900:oklch(.386 .063 188.416);--color-teal-950:oklch(.277 .046 192.524);--color-cyan-50:oklch(.984 .019 200.873);--color-cyan-100:oklch(.956 .045 203.388);--color-cyan-200:oklch(.917 .08 205.041);--color-cyan-300:oklch(.865 .127 207.078);--color-cyan-400:oklch(.789 .154 211.53);--color-cyan-500:oklch(.715 .143 215.221);--color-cyan-600:oklch(.609 .126 221.723);--color-cyan-700:oklch(.52 .105 223.128);--color-cyan-800:oklch(.45 .085 224.283);--color-cyan-900:oklch(.398 .07 227.392);--color-cyan-950:oklch(.302 .056 229.695);--color-sky-50:oklch(.977 .013 236.62);--color-sky-100:oklch(.951 .026 236.824);--color-sky-200:oklch(.901 .058 230.902);--color-sky-300:oklch(.828 .111 230.318);--color-sky-400:oklch(.746 .16 232.661);--color-sky-500:oklch(.685 .169 237.323);--color-sky-600:oklch(.588 .158 241.966);--color-sky-700:oklch(.5 .134 242.749);--color-sky-800:oklch(.443 .11 240.79);--color-sky-900:oklch(.391 .09 240.876);--color-sky-950:oklch(.293 .066 243.157);--color-blue-50:oklch(.97 .014 254.604);--color-blue-100:oklch(.932 .032 255.585);--color-blue-200:oklch(.882 .059 254.128);--color-blue-300:oklch(.809 .105 251.813);--color-blue-400:oklch(.707 .165 254.624);--color-blue-500:oklch(.623 .214 259.815);--color-blue-600:oklch(.546 .245 262.881);--color-blue-700:oklch(.488 .243 264.376);--color-blue-800:oklch(.424 .199 265.638);--color-blue-900:oklch(.379 .146 265.522);--color-blue-950:oklch(.282 .091 267.935);--color-indigo-50:oklch(.962 .018 272.314);--color-indigo-100:oklch(.93 .034 272.788);--color-indigo-200:oklch(.87 .065 274.039);--color-indigo-300:oklch(.785 .115 274.713);--color-indigo-400:oklch(.673 .182 276.935);--color-indigo-500:oklch(.585 .233 277.117);--color-indigo-600:oklch(.511 .262 276.966);--color-indigo-700:oklch(.457 .24 277.023);--color-indigo-800:oklch(.398 .195 277.366);--color-indigo-900:oklch(.359 .144 278.697);--color-indigo-950:oklch(.257 .09 281.288);--color-violet-50:oklch(.969 .016 293.756);--color-violet-100:oklch(.943 .029 294.588);--color-violet-200:oklch(.894 .057 293.283);--color-violet-300:oklch(.811 .111 293.571);--color-violet-400:oklch(.702 .183 293.541);--color-violet-500:oklch(.606 .25 292.717);--color-violet-600:oklch(.541 .281 293.009);--color-violet-700:oklch(.491 .27 292.581);--color-violet-800:oklch(.432 .232 292.759);--color-violet-900:oklch(.38 .189 293.745);--color-violet-950:oklch(.283 .141 291.089);--color-purple-50:oklch(.977 .014 308.299);--color-purple-100:oklch(.946 .033 307.174);--color-purple-200:oklch(.902 .063 306.703);--color-purple-300:oklch(.827 .119 306.383);--color-purple-400:oklch(.714 .203 305.504);--color-purple-500:oklch(.627 .265 303.9);--color-purple-600:oklch(.558 .288 302.321);--color-purple-700:oklch(.496 .265 301.924);--color-purple-800:oklch(.438 .218 303.724);--color-purple-900:oklch(.381 .176 304.987);--color-purple-950:oklch(.291 .149 302.717);--color-fuchsia-50:oklch(.977 .017 320.058);--color-fuchsia-100:oklch(.952 .037 318.852);--color-fuchsia-200:oklch(.903 .076 319.62);--color-fuchsia-300:oklch(.833 .145 321.434);--color-fuchsia-400:oklch(.74 .238 322.16);--color-fuchsia-500:oklch(.667 .295 322.15);--color-fuchsia-600:oklch(.591 .293 322.896);--color-fuchsia-700:oklch(.518 .253 323.949);--color-fuchsia-800:oklch(.452 .211 324.591);--color-fuchsia-900:oklch(.401 .17 325.612);--color-fuchsia-950:oklch(.293 .136 325.661);--color-pink-50:oklch(.971 .014 343.198);--color-pink-100:oklch(.948 .028 342.258);--color-pink-200:oklch(.899 .061 343.231);--color-pink-300:oklch(.823 .12 346.018);--color-pink-400:oklch(.718 .202 349.761);--color-pink-500:oklch(.656 .241 354.308);--color-pink-600:oklch(.592 .249 .584);--color-pink-700:oklch(.525 .223 3.958);--color-pink-800:oklch(.459 .187 3.815);--color-pink-900:oklch(.408 .153 2.432);--color-pink-950:oklch(.284 .109 3.907);--color-rose-50:oklch(.969 .015 12.422);--color-rose-100:oklch(.941 .03 12.58);--color-rose-200:oklch(.892 .058 10.001);--color-rose-300:oklch(.81 .117 11.638);--color-rose-400:oklch(.712 .194 13.428);--color-rose-500:oklch(.645 .246 16.439);--color-rose-600:oklch(.586 .253 17.585);--color-rose-700:oklch(.514 .222 16.935);--color-rose-800:oklch(.455 .188 13.697);--color-rose-900:oklch(.41 .159 10.272);--color-rose-950:oklch(.271 .105 12.094);--color-slate-50:oklch(.984 .003 247.858);--color-slate-100:oklch(.968 .007 247.896);--color-slate-200:oklch(.929 .013 255.508);--color-slate-300:oklch(.869 .022 252.894);--color-slate-400:oklch(.704 .04 256.788);--color-slate-500:oklch(.554 .046 257.417);--color-slate-600:oklch(.446 .043 257.281);--color-slate-700:oklch(.372 .044 257.287);--color-slate-800:oklch(.279 .041 260.031);--color-slate-900:oklch(.208 .042 265.755);--color-slate-950:oklch(.129 .042 264.695);--color-gray-50:oklch(.985 .002 247.839);--color-gray-100:oklch(.967 .003 264.542);--color-gray-200:oklch(.928 .006 264.531);--color-gray-300:oklch(.872 .01 258.338);--color-gray-400:oklch(.707 .022 261.325);--color-gray-500:oklch(.551 .027 264.364);--color-gray-600:oklch(.446 .03 256.802);--color-gray-700:oklch(.373 .034 259.733);--color-gray-800:oklch(.278 .033 256.848);--color-gray-900:oklch(.21 .034 264.665);--color-gray-950:oklch(.13 .028 261.692);--color-zinc-50:oklch(.985 0 0);--color-zinc-100:oklch(.967 .001 286.375);--color-zinc-200:oklch(.92 .004 286.32);--color-zinc-300:oklch(.871 .006 286.286);--color-zinc-400:oklch(.705 .015 286.067);--color-zinc-500:oklch(.552 .016 285.938);--color-zinc-600:oklch(.442 .017 285.786);--color-zinc-700:oklch(.37 .013 285.805);--color-zinc-800:oklch(.274 .006 286.033);--color-zinc-900:oklch(.21 .006 285.885);--color-zinc-950:oklch(.141 .005 285.823);--color-neutral-50:oklch(.985 0 0);--color-neutral-100:oklch(.97 0 0);--color-neutral-200:oklch(.922 0 0);--color-neutral-300:oklch(.87 0 0);--color-neutral-400:oklch(.708 0 0);--color-neutral-500:oklch(.556 0 0);--color-neutral-600:oklch(.439 0 0);--color-neutral-700:oklch(.371 0 0);--color-neutral-800:oklch(.269 0 0);--color-neutral-900:oklch(.205 0 0);--color-neutral-950:oklch(.145 0 0);--color-stone-50:oklch(.985 .001 106.423);--color-stone-100:oklch(.97 .001 106.424);--color-stone-200:oklch(.923 .003 48.717);--color-stone-300:oklch(.869 .005 56.366);--color-stone-400:oklch(.709 .01 56.259);--color-stone-500:oklch(.553 .013 58.071);--color-stone-600:oklch(.444 .011 73.639);--color-stone-700:oklch(.374 .01 67.558);--color-stone-800:oklch(.268 .007 34.298);--color-stone-900:oklch(.216 .006 56.043);--color-stone-950:oklch(.147 .004 49.25);--color-black:#000;--color-white:#fff;--spacing:.25rem;--breakpoint-sm:40rem;--breakpoint-md:48rem;--breakpoint-lg:64rem;--breakpoint-xl:80rem;--breakpoint-2xl:96rem;--container-3xs:16rem;--container-2xs:18rem;--container-xs:20rem;--container-sm:24rem;--container-md:28rem;--container-lg:32rem;--container-xl:36rem;--container-2xl:42rem;--container-3xl:48rem;--container-4xl:56rem;--container-5xl:64rem;--container-6xl:72rem;--container-7xl:80rem;--text-xs:.75rem;--text-xs--line-height:calc(1/.75);--text-sm:.875rem;--text-sm--line-height:calc(1.25/.875);--text-base:1rem;--text-base--line-height: 1.5 ;--text-lg:1.125rem;--text-lg--line-height:calc(1.75/1.125);--text-xl:1.25rem;--text-xl--line-height:calc(1.75/1.25);--text-2xl:1.5rem;--text-2xl--line-height:calc(2/1.5);--text-3xl:1.875rem;--text-3xl--line-height: 1.2 ;--text-4xl:2.25rem;--text-4xl--line-height:calc(2.5/2.25);--text-5xl:3rem;--text-5xl--line-height:1;--text-6xl:3.75rem;--text-6xl--line-height:1;--text-7xl:4.5rem;--text-7xl--line-height:1;--text-8xl:6rem;--text-8xl--line-height:1;--text-9xl:8rem;--text-9xl--line-height:1;--font-weight-thin:100;--font-weight-extralight:200;--font-weight-light:300;--font-weight-normal:400;--font-weight-medium:500;--font-weight-semibold:600;--font-weight-bold:700;--font-weight-extrabold:800;--font-weight-black:900;--tracking-tighter:-.05em;--tracking-tight:-.025em;--tracking-normal:0em;--tracking-wide:.025em;--tracking-wider:.05em;--tracking-widest:.1em;--leading-tight:1.25;--leading-snug:1.375;--leading-normal:1.5;--leading-relaxed:1.625;--leading-loose:2;--radius-xs:.125rem;--radius-sm:.25rem;--radius-md:.375rem;--radius-lg:.5rem;--radius-xl:.75rem;--radius-2xl:1rem;--radius-3xl:1.5rem;--radius-4xl:2rem;--shadow-2xs:0 1px #0000000d;--shadow-xs:0 1px 2px 0 #0000000d;--shadow-sm:0 1px 3px 0 #0000001a,0 1px 2px -1px #0000001a;--shadow-md:0 4px 6px -1px #0000001a,0 2px 4px -2px #0000001a;--shadow-lg:0 10px 15px -3px #0000001a,0 4px 6px -4px #0000001a;--shadow-xl:0 20px 25px -5px #0000001a,0 8px 10px -6px #0000001a;--shadow-2xl:0 25px 50px -12px #00000040;--inset-shadow-2xs:inset 0 1px #0000000d;--inset-shadow-xs:inset 0 1px 1px #0000000d;--inset-shadow-sm:inset 0 2px 4px #0000000d;--drop-shadow-xs:0 1px 1px #0000000d;--drop-shadow-sm:0 1px 2px #00000026;--drop-shadow-md:0 3px 3px #0000001f;--drop-shadow-lg:0 4px 4px #00000026;--drop-shadow-xl:0 9px 7px #0000001a;--drop-shadow-2xl:0 25px 25px #00000026;--ease-in:cubic-bezier(.4,0,1,1);--ease-out:cubic-bezier(0,0,.2,1);--ease-in-out:cubic-bezier(.4,0,.2,1);--animate-spin:spin 1s linear infinite;--animate-ping:ping 1s cubic-bezier(0,0,.2,1)infinite;--animate-pulse:pulse 2s cubic-bezier(.4,0,.6,1)infinite;--animate-bounce:bounce 1s infinite;--blur-xs:4px;--blur-sm:8px;--blur-md:12px;--blur-lg:16px;--blur-xl:24px;--blur-2xl:40px;--blur-3xl:64px;--perspective-dramatic:100px;--perspective-near:300px;--perspective-normal:500px;--perspective-midrange:800px;--perspective-distant:1200px;--aspect-video:16/9;--default-transition-duration:.15s;--default-transition-timing-function:cubic-bezier(.4,0,.2,1);--default-font-family:var(--font-sans);--default-font-feature-settings:var(--font-sans--font-feature-settings);--default-font-variation-settings:var(--font-sans--font-variation-settings);--default-mono-font-family:var(--font-mono);--default-mono-font-feature-settings:var(--font-mono--font-feature-settings);--default-mono-font-variation-settings:var(--font-mono--font-variation-settings)}}@layer base{*,:after,:before,::backdrop{box-sizing:border-box;border:0 solid;margin:0;padding:0}::file-selector-button{box-sizing:border-box;border:0 solid;margin:0;padding:0}html,:host{-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;line-height:1.5;font-family:var(--default-font-family,ui-sans-serif,system-ui,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji");font-feature-settings:var(--default-font-feature-settings,normal);font-variation-settings:var(--default-font-variation-settings,normal);-webkit-tap-highlight-color:transparent}body{line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;-webkit-text-decoration:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,samp,pre{font-family:var(--default-mono-font-family,ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace);font-feature-settings:var(--default-mono-font-feature-settings,normal);font-variation-settings:var(--default-mono-font-variation-settings,normal);font-size:1em}small{font-size:80%}sub,sup{vertical-align:baseline;font-size:75%;line-height:0;position:relative}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}:-moz-focusring{outline:auto}progress{vertical-align:baseline}summary{display:list-item}ol,ul,menu{list-style:none}img,svg,video,canvas,audio,iframe,embed,object{vertical-align:middle;display:block}img,video{max-width:100%;height:auto}button,input,select,optgroup,textarea{font:inherit;font-feature-settings:inherit;font-variation-settings:inherit;letter-spacing:inherit;color:inherit;opacity:1;background-color:#0000;border-radius:0}::file-selector-button{font:inherit;font-feature-settings:inherit;font-variation-settings:inherit;letter-spacing:inherit;color:inherit;opacity:1;background-color:#0000;border-radius:0}:where(select:is([multiple],[size])) optgroup{font-weight:bolder}:where(select:is([multiple],[size])) optgroup option{padding-inline-start:20px}::file-selector-button{margin-inline-end:4px}::placeholder{opacity:1;color:color-mix(in oklab,currentColor 50%,transparent)}textarea{resize:vertical}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-date-and-time-value{min-height:1lh;text-align:inherit}::-webkit-datetime-edit{display:inline-flex}::-webkit-datetime-edit-fields-wrapper{padding:0}::-webkit-datetime-edit{padding-block:0}::-webkit-datetime-edit-year-field{padding-block:0}::-webkit-datetime-edit-month-field{padding-block:0}::-webkit-datetime-edit-day-field{padding-block:0}::-webkit-datetime-edit-hour-field{padding-block:0}::-webkit-datetime-edit-minute-field{padding-block:0}::-webkit-datetime-edit-second-field{padding-block:0}::-webkit-datetime-edit-millisecond-field{padding-block:0}::-webkit-datetime-edit-meridiem-field{padding-block:0}:-moz-ui-invalid{box-shadow:none}button,input:where([type=button],[type=reset],[type=submit]){-webkit-appearance:button;-moz-appearance:button;appearance:button}::file-selector-button{-webkit-appearance:button;-moz-appearance:button;appearance:button}::-webkit-inner-spin-button{height:auto}::-webkit-outer-spin-button{height:auto}[hidden]:where(:not([hidden=until-found])){display:none!important}}@layer components;@layer utilities{.absolute{position:absolute}.relative{position:relative}.static{position:static}.inset-0{inset:calc(var(--spacing)*0)}.-mt-\[4\.9rem\]{margin-top:-4.9rem}.-mb-px{margin-bottom:-1px}.mb-1{margin-bottom:calc(var(--spacing)*1)}.mb-2{margin-bottom:calc(var(--spacing)*2)}.mb-4{margin-bottom:calc(var(--spacing)*4)}.mb-6{margin-bottom:calc(var(--spacing)*6)}.-ml-8{margin-left:calc(var(--spacing)*-8)}.flex{display:flex}.hidden{display:none}.inline-block{display:inline-block}.inline-flex{display:inline-flex}.table{display:table}.aspect-\[335\/376\]{aspect-ratio:335/376}.h-1{height:calc(var(--spacing)*1)}.h-1\.5{height:calc(var(--spacing)*1.5)}.h-2{height:calc(var(--spacing)*2)}.h-2\.5{height:calc(var(--spacing)*2.5)}.h-3{height:calc(var(--spacing)*3)}.h-3\.5{height:calc(var(--spacing)*3.5)}.h-14{height:calc(var(--spacing)*14)}.h-14\.5{height:calc(var(--spacing)*14.5)}.min-h-screen{min-height:100vh}.w-1{width:calc(var(--spacing)*1)}.w-1\.5{width:calc(var(--spacing)*1.5)}.w-2{width:calc(var(--spacing)*2)}.w-2\.5{width:calc(var(--spacing)*2.5)}.w-3{width:calc(var(--spacing)*3)}.w-3\.5{width:calc(var(--spacing)*3.5)}.w-\[448px\]{width:448px}.w-full{width:100%}.max-w-\[335px\]{max-width:335px}.max-w-none{max-width:none}.flex-1{flex:1}.shrink-0{flex-shrink:0}.translate-y-0{--tw-translate-y:calc(var(--spacing)*0);translate:var(--tw-translate-x)var(--tw-translate-y)}.transform{transform:var(--tw-rotate-x)var(--tw-rotate-y)var(--tw-rotate-z)var(--tw-skew-x)var(--tw-skew-y)}.flex-col{flex-direction:column}.flex-col-reverse{flex-direction:column-reverse}.items-center{align-items:center}.justify-center{justify-content:center}.justify-end{justify-content:flex-end}.gap-3{gap:calc(var(--spacing)*3)}.gap-4{gap:calc(var(--spacing)*4)}:where(.space-x-1>:not(:last-child)){--tw-space-x-reverse:0;margin-inline-start:calc(calc(var(--spacing)*1)*var(--tw-space-x-reverse));margin-inline-end:calc(calc(var(--spacing)*1)*calc(1 - var(--tw-space-x-reverse)))}.overflow-hidden{overflow:hidden}.rounded-full{border-radius:3.40282e38px}.rounded-sm{border-radius:var(--radius-sm)}.rounded-t-lg{border-top-left-radius:var(--radius-lg);border-top-right-radius:var(--radius-lg)}.rounded-br-lg{border-bottom-right-radius:var(--radius-lg)}.rounded-bl-lg{border-bottom-left-radius:var(--radius-lg)}.border{border-style:var(--tw-border-style);border-width:1px}.border-\[\#19140035\]{border-color:#19140035}.border-\[\#e3e3e0\]{border-color:#e3e3e0}.border-black{border-color:var(--color-black)}.border-transparent{border-color:#0000}.bg-\[\#1b1b18\]{background-color:#1b1b18}.bg-\[\#FDFDFC\]{background-color:#fdfdfc}.bg-\[\#dbdbd7\]{background-color:#dbdbd7}.bg-\[\#fff2f2\]{background-color:#fff2f2}.bg-white{background-color:var(--color-white)}.p-6{padding:calc(var(--spacing)*6)}.px-5{padding-inline:calc(var(--spacing)*5)}.py-1{padding-block:calc(var(--spacing)*1)}.py-1\.5{padding-block:calc(var(--spacing)*1.5)}.py-2{padding-block:calc(var(--spacing)*2)}.pb-12{padding-bottom:calc(var(--spacing)*12)}.text-sm{font-size:var(--text-sm);line-height:var(--tw-leading,var(--text-sm--line-height))}.text-\[13px\]{font-size:13px}.leading-\[20px\]{--tw-leading:20px;line-height:20px}.leading-normal{--tw-leading:var(--leading-normal);line-height:var(--leading-normal)}.font-medium{--tw-font-weight:var(--font-weight-medium);font-weight:var(--font-weight-medium)}.text-\[\#1b1b18\]{color:#1b1b18}.text-\[\#706f6c\]{color:#706f6c}.text-\[\#F53003\],.text-\[\#f53003\]{color:#f53003}.text-white{color:var(--color-white)}.underline{text-decoration-line:underline}.underline-offset-4{text-underline-offset:4px}.opacity-100{opacity:1}.shadow-\[0px_0px_1px_0px_rgba\(0\,0\,0\,0\.03\)\,0px_1px_2px_0px_rgba\(0\,0\,0\,0\.06\)\]{--tw-shadow:0px 0px 1px 0px var(--tw-shadow-color,#00000008),0px 1px 2px 0px var(--tw-shadow-color,#0000000f);box-shadow:var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)}.shadow-\[inset_0px_0px_0px_1px_rgba\(26\,26\,0\,0\.16\)\]{--tw-shadow:inset 0px 0px 0px 1px var(--tw-shadow-color,#1a1a0029);box-shadow:var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)}.\!filter{filter:var(--tw-blur,)var(--tw-brightness,)var(--tw-contrast,)var(--tw-grayscale,)var(--tw-hue-rotate,)var(--tw-invert,)var(--tw-saturate,)var(--tw-sepia,)var(--tw-drop-shadow,)!important}.filter{filter:var(--tw-blur,)var(--tw-brightness,)var(--tw-contrast,)var(--tw-grayscale,)var(--tw-hue-rotate,)var(--tw-invert,)var(--tw-saturate,)var(--tw-sepia,)var(--tw-drop-shadow,)}.transition-all{transition-property:all;transition-timing-function:var(--tw-ease,var(--default-transition-timing-function));transition-duration:var(--tw-duration,var(--default-transition-duration))}.transition-opacity{transition-property:opacity;transition-timing-function:var(--tw-ease,var(--default-transition-timing-function));transition-duration:var(--tw-duration,var(--default-transition-duration))}.delay-300{transition-delay:.3s}.duration-750{--tw-duration:.75s;transition-duration:.75s}.not-has-\[nav\]\:hidden:not(:has(:is(nav))){display:none}.before\:absolute:before{content:var(--tw-content);position:absolute}.before\:top-0:before{content:var(--tw-content);top:calc(var(--spacing)*0)}.before\:top-1\/2:before{content:var(--tw-content);top:50%}.before\:bottom-0:before{content:var(--tw-content);bottom:calc(var(--spacing)*0)}.before\:bottom-1\/2:before{content:var(--tw-content);bottom:50%}.before\:left-\[0\.4rem\]:before{content:var(--tw-content);left:.4rem}.before\:border-l:before{content:var(--tw-content);border-left-style:var(--tw-border-style);border-left-width:1px}.before\:border-\[\#e3e3e0\]:before{content:var(--tw-content);border-color:#e3e3e0}@media (hover:hover){.hover\:border-\[\#1915014a\]:hover{border-color:#1915014a}.hover\:border-\[\#19140035\]:hover{border-color:#19140035}.hover\:border-black:hover{border-color:var(--color-black)}.hover\:bg-black:hover{background-color:var(--color-black)}}@media (width>=64rem){.lg\:-mt-\[6\.6rem\]{margin-top:-6.6rem}.lg\:mb-0{margin-bottom:calc(var(--spacing)*0)}.lg\:mb-6{margin-bottom:calc(var(--spacing)*6)}.lg\:-ml-px{margin-left:-1px}.lg\:ml-0{margin-left:calc(var(--spacing)*0)}.lg\:block{display:block}.lg\:aspect-auto{aspect-ratio:auto}.lg\:w-\[438px\]{width:438px}.lg\:max-w-4xl{max-width:var(--container-4xl)}.lg\:grow{flex-grow:1}.lg\:flex-row{flex-direction:row}.lg\:justify-center{justify-content:center}.lg\:rounded-t-none{border-top-left-radius:0;border-top-right-radius:0}.lg\:rounded-tl-lg{border-top-left-radius:var(--radius-lg)}.lg\:rounded-r-lg{border-top-right-radius:var(--radius-lg);border-bottom-right-radius:var(--radius-lg)}.lg\:rounded-br-none{border-bottom-right-radius:0}.lg\:p-8{padding:calc(var(--spacing)*8)}.lg\:p-20{padding:calc(var(--spacing)*20)}}@media (prefers-color-scheme:dark){.dark\:block{display:block}.dark\:hidden{display:none}.dark\:border-\[\#3E3E3A\]{border-color:#3e3e3a}.dark\:border-\[\#eeeeec\]{border-color:#eeeeec}.dark\:bg-\[\#0a0a0a\]{background-color:#0a0a0a}.dark\:bg-\[\#1D0002\]{background-color:#1d0002}.dark\:bg-\[\#3E3E3A\]{background-color:#3e3e3a}.dark\:bg-\[\#161615\]{background-color:#161615}.dark\:bg-\[\#eeeeec\]{background-color:#eeeeec}.dark\:text-\[\#1C1C1A\]{color:#1c1c1a}.dark\:text-\[\#A1A09A\]{color:#a1a09a}.dark\:text-\[\#EDEDEC\]{color:#ededec}.dark\:text-\[\#F61500\]{color:#f61500}.dark\:text-\[\#FF4433\]{color:#f43}.dark\:shadow-\[inset_0px_0px_0px_1px_\#fffaed2d\]{--tw-shadow:inset 0px 0px 0px 1px var(--tw-shadow-color,#fffaed2d);box-shadow:var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)}.dark\:before\:border-\[\#3E3E3A\]:before{content:var(--tw-content);border-color:#3e3e3a}@media (hover:hover){.dark\:hover\:border-\[\#3E3E3A\]:hover{border-color:#3e3e3a}.dark\:hover\:border-\[\#62605b\]:hover{border-color:#62605b}.dark\:hover\:border-white:hover{border-color:var(--color-white)}.dark\:hover\:bg-white:hover{background-color:var(--color-white)}}}@starting-style{.starting\:translate-y-4{--tw-translate-y:calc(var(--spacing)*4);translate:var(--tw-translate-x)var(--tw-translate-y)}}@starting-style{.starting\:translate-y-6{--tw-translate-y:calc(var(--spacing)*6);translate:var(--tw-translate-x)var(--tw-translate-y)}}@starting-style{.starting\:opacity-0{opacity:0}}}@keyframes spin{to{transform:rotate(360deg)}}@keyframes ping{75%,to{opacity:0;transform:scale(2)}}@keyframes pulse{50%{opacity:.5}}@keyframes bounce{0%,to{animation-timing-function:cubic-bezier(.8,0,1,1);transform:translateY(-25%)}50%{animation-timing-function:cubic-bezier(0,0,.2,1);transform:none}}@property --tw-translate-x{syntax:"*";inherits:false;initial-value:0}@property --tw-translate-y{syntax:"*";inherits:false;initial-value:0}@property --tw-translate-z{syntax:"*";inherits:false;initial-value:0}@property --tw-rotate-x{syntax:"*";inherits:false;initial-value:rotateX(0)}@property --tw-rotate-y{syntax:"*";inherits:false;initial-value:rotateY(0)}@property --tw-rotate-z{syntax:"*";inherits:false;initial-value:rotateZ(0)}@property --tw-skew-x{syntax:"*";inherits:false;initial-value:skewX(0)}@property --tw-skew-y{syntax:"*";inherits:false;initial-value:skewY(0)}@property --tw-space-x-reverse{syntax:"*";inherits:false;initial-value:0}@property --tw-border-style{syntax:"*";inherits:false;initial-value:solid}@property --tw-leading{syntax:"*";inherits:false}@property --tw-font-weight{syntax:"*";inherits:false}@property --tw-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-shadow-color{syntax:"*";inherits:false}@property --tw-inset-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-inset-shadow-color{syntax:"*";inherits:false}@property --tw-ring-color{syntax:"*";inherits:false}@property --tw-ring-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-inset-ring-color{syntax:"*";inherits:false}@property --tw-inset-ring-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-ring-inset{syntax:"*";inherits:false}@property --tw-ring-offset-width{syntax:"<length>";inherits:false;initial-value:0}@property --tw-ring-offset-color{syntax:"*";inherits:false;initial-value:#fff}@property --tw-ring-offset-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-blur{syntax:"*";inherits:false}@property --tw-brightness{syntax:"*";inherits:false}@property --tw-contrast{syntax:"*";inherits:false}@property --tw-grayscale{syntax:"*";inherits:false}@property --tw-hue-rotate{syntax:"*";inherits:false}@property --tw-invert{syntax:"*";inherits:false}@property --tw-opacity{syntax:"*";inherits:false}@property --tw-saturate{syntax:"*";inherits:false}@property --tw-sepia{syntax:"*";inherits:false}@property --tw-drop-shadow{syntax:"*";inherits:false}@property --tw-duration{syntax:"*";inherits:false}@property --tw-content{syntax:"*";inherits:false;initial-value:""}
-        </style>
-    @endif
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Folio &amp; Quill | Curating the World's Finest Literature</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#e5e2dd",
+                        "surface-variant": "#d5e3fc",
+                        "on-surface": "#0d1c2e",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#bec6e0",
+                        "on-tertiary-container": "#ba7062",
+                        "on-primary-container": "#7c839b",
+                        "secondary-container": "#e5e2dd",
+                        "primary-container": "#131b2e",
+                        "on-secondary-fixed-variant": "#474743",
+                        "tertiary-fixed-dim": "#ffb4a6",
+                        "primary-fixed-dim": "#bec6e0",
+                        "on-primary-fixed": "#131b2e",
+                        "surface-container-highest": "#d5e3fc",
+                        "on-tertiary-fixed-variant": "#71352a",
+                        "tertiary-container": "#390b05",
+                        "outline": "#76777d",
+                        "surface-tint": "#565e74",
+                        "primary-fixed": "#dae2fd",
+                        "on-surface-variant": "#45464d",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed-dim": "#c8c6c2",
+                        "secondary": "#5f5e5b",
+                        "primary": "#000000",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-dim": "#ccdbf3",
+                        "inverse-surface": "#233144",
+                        "outline-variant": "#c6c6cd",
+                        "surface": "#f8f9ff",
+                        "on-background": "#0d1c2e",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#390b05",
+                        "background": "#f8f9ff",
+                        "surface-bright": "#f8f9ff",
+                        "inverse-on-surface": "#eaf1ff",
+                        "surface-container": "#e6eeff",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "surface-container-high": "#dce9ff",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#ffdad3",
+                        "tertiary": "#000000",
+                        "on-secondary-container": "#656461",
+                        "surface-container-low": "#eff4ff",
+                        "on-secondary-fixed": "#1c1c19"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "section-gap": "96px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "20px",
+                        "unit": "4px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["EB Garamond"],
+                        "display-lg": ["EB Garamond"],
+                        "caption": ["Hanken Grotesk"],
+                        "headline-md": ["EB Garamond"],
+                        "body-md": ["Hanken Grotesk"],
+                        "label-md": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "display-lg-mobile": ["EB Garamond"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "500"}],
+                        "caption": ["12px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                        "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-lg-mobile": ["36px", {"lineHeight": "1.2", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .book-card-hover:hover {
+            box-shadow: 0 12px 24px -8px rgba(13, 28, 46, 0.15);
+            transform: translateY(-4px);
+        }
+        .glass-header {
+            backdrop-filter: blur(8px);
+            background-color: rgba(248, 249, 255, 0.85);
+        }
+        /* Smooth scroll is applied via html class "scroll-smooth" */
+    </style>
 </head>
-<body class="bg-[#FDFDFC] dark:bg-[#0a0a0a] text-[#1b1b18] flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col">
-
-    <header class="w-full lg:max-w-4xl max-w-[335px] text-sm mb-6 not-has-[nav]:hidden">
-        @if (Route::has('login'))
-            <nav class="flex items-center justify-end gap-4">
-                @auth
-                    <a href="{{ url('/dashboard') }}"
-                       class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal">
-                        Dashboard
-                    </a>
-                @else
-                    <a href="{{ route('login') }}"
-                       class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] text-[#1b1b18] border border-transparent hover:border-[#19140035] dark:hover:border-[#3E3E3A] rounded-sm text-sm leading-normal">
+<body class="bg-surface text-on-surface font-body-md selection:bg-primary-container selection:text-white">
+    <!-- TopNavBar -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-header border-b border-outline-variant/10">
+        <nav class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+            <!-- Brand -->
+            <div class="flex items-center gap-8">
+                <a class="font-headline-md text-headline-md text-on-surface tracking-tight" href="#">Folio &amp; Quill</a>
+                <!-- Desktop Nav Links -->
+                <div class="hidden md:flex items-center gap-6">
+                    <a class="font-label-md text-label-md text-primary border-b-2 border-primary pb-1" href="#">Fiction</a>
+                    <a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors duration-200" href="#">Non-Fiction</a>
+                    <a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors duration-200" href="#">Classics</a>
+                    <a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors duration-200" href="#">Poetry</a>
+                </div>
+            </div>
+            <!-- Utility Actions -->
+            <div class="flex items-center gap-4 md:gap-6">
+                <div class="hidden lg:flex items-center bg-secondary-container/30 px-4 py-2 rounded-full border border-outline-variant/20">
+                    <span class="material-symbols-outlined text-[20px] text-on-surface-variant mr-2">search</span>
+                    <input class="bg-transparent border-none focus:ring-0 text-label-md p-0 w-48 font-headline-sm italic placeholder:opacity-50" placeholder="Search the library..." type="text"/>
+                </div>
+                <button class="p-2 hover:opacity-80 transition-opacity"><span class="material-symbols-outlined">shopping_cart</span></button>
+                
+                <!-- 🔁 REPLACED PERSON ICON WITH LOGIN / REGISTER BUTTONS (functional redirects) -->
+                <div class="flex items-center gap-2">
+                    <a href="{{ route('login') }}" 
+                       class="inline-block px-4 py-1.5 text-sm font-medium text-on-surface border border-outline-variant/30 hover:bg-primary hover:text-white hover:border-primary rounded-sm transition-all duration-200">
                         Log in
                     </a>
-                    @if (Route::has('register'))
-                        <a href="{{ route('register') }}"
-                           class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal">
-                            Register
-                        </a>
-                    @endif
-                @endauth
-            </nav>
-        @endif
+                    <a href="{{ route('register') }}" 
+                       class="inline-block px-4 py-1.5 text-sm font-medium bg-primary text-white hover:bg-on-surface-variant rounded-sm transition-all duration-200">
+                        Register
+                    </a>
+                </div>
+
+                <button class="md:hidden p-2"><span class="material-symbols-outlined">menu</span></button>
+            </div>
+        </nav>
     </header>
 
-    <div class="flex items-center justify-center w-full transition-opacity opacity-100 duration-750 lg:grow starting:opacity-0">
-        <main class="flex max-w-[335px] w-full flex-col-reverse lg:max-w-4xl lg:flex-row">
-
-            {{-- BOOKSHOP CONTENT --}}
-            <div class="text-[13px] leading-[20px] flex-1 p-6 pb-12 lg:p-20 bg-white dark:bg-[#161615] dark:text-[#EDEDEC] shadow-[inset_0px_0px_0px_1px_rgba(26,26,0,0.16)] dark:shadow-[inset_0px_0px_0px_1px_#fffaed2d] rounded-bl-lg rounded-br-lg lg:rounded-tl-lg lg:rounded-br-none">
-                <div class="flex items-center gap-2 mb-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 text-[#f53003] dark:text-[#FF4433]">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
-                    </svg>
-                    <h1 class="font-medium">The Book Nook</h1>
+    <main class="pt-24">
+        <!-- Hero Section: Book of the Month -->
+        <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-section-gap">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center bg-surface-container-low p-8 md:p-16 rounded-lg relative overflow-hidden">
+                <!-- Background Decoration -->
+                <div class="absolute -top-24 -right-24 w-96 h-96 bg-primary-container/5 rounded-full blur-3xl"></div>
+                <!-- Hero Image -->
+                <div class="md:col-span-5 flex justify-center perspective-1000">
+                    <div class="relative group">
+                        <div class="absolute -inset-2 bg-on-surface/5 blur-xl group-hover:bg-on-surface/10 transition-all duration-500"></div>
+                        <img class="w-full max-w-sm rounded-sm shadow-2xl relative z-10 transition-transform duration-700 group-hover:rotate-y-12" data-alt="A sophisticated hardback book cover featuring intricate gold foil lettering on a deep emerald green linen background. The book is titled 'The Silent Library' and is displayed at an angle to showcase the thick, high-quality ivory paper edges. Soft, directional library lighting creates elegant shadows, emphasizing the premium tactile texture of the fabric cover. The overall aesthetic is classical yet modern, fitting for a curated literary boutique." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdB-TFQlD0ZROqBoEGCNCl6n2F1bY_Ka-cjQyZETXNJ-YhbY5DzIHatazzfGkmh0nN1xldN-m40-lnekmGaGlrp3PlK6KN6vpm9D8SzsCrgUEcN_JmVvDQOzTvFK_jNRHBOKm_tpQIqVsKcu5fXKNbb5euDCxqcuwmbj6mhOxqZKzA-EAza5XdUEmq4WvpzdciCVTKXaLAe-Z0shU2kSg4UAr3OVGWYY6bslNna9q3e9PAxC-RxhZOtmUfI_GZTc6JNITbTk2jn9Q"/>
+                    </div>
                 </div>
-                <p class="mb-2 text-[#706f6c] dark:text-[#A1A09A]">Discover stories that stay with you.<br>New arrivals, classics &amp; hidden gems.</p>
-                <ul class="flex flex-col mb-4 lg:mb-6">
-                    <li class="flex items-center gap-4 py-2 relative before:border-l before:border-[#e3e3e0] dark:before:border-[#3E3E3A] before:top-1/2 before:bottom-0 before:left-[0.4rem] before:absolute">
-                        <span class="relative py-1 bg-white dark:bg-[#161615]">
-                            <span class="flex items-center justify-center rounded-full bg-[#FDFDFC] dark:bg-[#161615] shadow-[0px_0px_1px_0px_rgba(0,0,0,0.03),0px_1px_2px_0px_rgba(0,0,0,0.06)] w-3.5 h-3.5 border dark:border-[#3E3E3A] border-[#e3e3e0]">
-                                <span class="rounded-full bg-[#dbdbd7] dark:bg-[#3E3E3A] w-1.5 h-1.5"></span>
-                            </span>
-                        </span>
-                        <span>
-                            Weekly bestsellers
-                            <a href="#" class="inline-flex items-center space-x-1 font-medium underline underline-offset-4 text-[#f53003] dark:text-[#FF4433] ml-1">
-                                <span>See list</span>
-                                <svg width="10" height="11" viewBox="0 0 10 11" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-2.5 h-2.5">
-                                    <path d="M7.70833 6.95834V2.79167H3.54167M2.5 8L7.5 3.00001" stroke="currentColor" stroke-linecap="square"/>
-                                </svg>
-                            </a>
-                        </span>
-                    </li>
-                    <li class="flex items-center gap-4 py-2 relative before:border-l before:border-[#e3e3e0] dark:before:border-[#3E3E3A] before:bottom-1/2 before:top-0 before:left-[0.4rem] before:absolute">
-                        <span class="relative py-1 bg-white dark:bg-[#161615]">
-                            <span class="flex items-center justify-center rounded-full bg-[#FDFDFC] dark:bg-[#161615] shadow-[0px_0px_1px_0px_rgba(0,0,0,0.03),0px_1px_2px_0px_rgba(0,0,0,0.06)] w-3.5 h-3.5 border dark:border-[#3E3E3A] border-[#e3e3e0]">
-                                <span class="rounded-full bg-[#dbdbd7] dark:bg-[#3E3E3A] w-1.5 h-1.5"></span>
-                            </span>
-                        </span>
-                        <span>
-                            Signed editions
-                            <a href="#" class="inline-flex items-center space-x-1 font-medium underline underline-offset-4 text-[#f53003] dark:text-[#FF4433] ml-1">
-                                <span>Shop now</span>
-                                <svg width="10" height="11" viewBox="0 0 10 11" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-2.5 h-2.5">
-                                    <path d="M7.70833 6.95834V2.79167H3.54167M2.5 8L7.5 3.00001" stroke="currentColor" stroke-linecap="square"/>
-                                </svg>
-                            </a>
-                        </span>
-                    </li>
+                <!-- Hero Content -->
+                <div class="md:col-span-7 mt-8 md:mt-0 flex flex-col items-start">
+                    <span class="font-label-md text-label-md uppercase tracking-[0.2em] text-on-tertiary-container mb-4">Book of the Month</span>
+                    <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg mb-6 leading-tight">The Art of Stillness in a World of Noise</h1>
+                    <p class="font-body-lg text-body-lg text-secondary mb-8 max-w-xl">
+                        A definitive exploration into the curation of silence. This limited edition volume features hand-pressed paper and exclusive commentary from the world's most renowned minimalists.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <button class="bg-primary text-on-primary px-8 py-4 font-label-md text-label-md transition-all hover:bg-on-surface-variant flex items-center gap-2">
+                            Add to Library — $42.00
+                        </button>
+                        <button class="border border-outline-variant px-8 py-4 font-label-md text-label-md hover:bg-surface-container transition-colors">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Arrivals Grid -->
+        <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-section-gap">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <h2 class="font-headline-md text-headline-md mb-2">New Arrivals</h2>
+                    <p class="text-secondary font-body-md italic">Freshly unboxed from our curators' latest findings.</p>
+                </div>
+                <a class="font-label-md text-label-md underline underline-offset-8 decoration-outline-variant hover:decoration-primary transition-all" href="#">View All</a>
+            </div>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-gutter">
+                <!-- Book Card 1 -->
+                <div class="flex flex-col group cursor-pointer">
+                    <div class="aspect-[3/4] mb-4 overflow-hidden border border-outline-variant/10 bg-white p-2 md:p-4 book-card-hover transition-all duration-300">
+                        <img class="w-full h-full object-cover shadow-sm" data-alt="A minimalist book cover titled 'Echoes of Midnight' with a single silver celestial moon phase illustration on a matte charcoal background. The design is clean and modern, following the Literary Modern aesthetic with generous white space and sharp typography. The book is presented in a high-key studio environment with soft ambient lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxS6bZDodf-yedGEcdr3f5qU8fxujnfn3ju7gR0eKPXcHzlfPSlBVZZffJIrcqOpdJ3q4rgY5lBLuAHn02xYOFKTjyA32rioAr85sTToS_1IIsCvZRfjWE4h7pHeE9yiVZQ4yH4jrKs5wQu19rdmv5pBg6S4ionGsrrk2YBdZIabWn-vMjijrBwomDsu4FPy2s6wd6mxjsM3dVpVK0tWZ3cuF_BuTFF9PFWsAOKL7JWbAeqsfmCEeqmQ16XrQhL53QMlz72kLCnYc"/>
+                    </div>
+                    <h3 class="font-headline-sm text-[18px] mb-1 group-hover:text-primary transition-colors">Echoes of Midnight</h3>
+                    <p class="text-secondary font-body-md text-sm mb-2">Julian V. Sterling</p>
+                    <p class="font-label-md text-label-md">$28.00</p>
+                </div>
+                <!-- Book Card 2 -->
+                <div class="flex flex-col group cursor-pointer">
+                    <div class="aspect-[3/4] mb-4 overflow-hidden border border-outline-variant/10 bg-white p-2 md:p-4 book-card-hover transition-all duration-300">
+                        <img class="w-full h-full object-cover shadow-sm" data-alt="A vibrant book cover featuring an abstract oil painting of a Mediterranean coastline in warm terracotta, ochre, and deep blue. The typography is bold and modern, titled 'The Sunlit Path'. The scene reflects a warm, Mediterranean summer afternoon with high contrast and golden hour light, maintaining a premium academic feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzE0MKwfae5MKJb2xgNjBok7vxHd5_Pu1vTzBw5bpc3JcE455PAcr_mTBAhu5Jr9ZbcRmuMttTCNm14XArZQcO3_-rdwIdkGYPFu_2WAKg95dZmrB7GGseFvTqJxjpgSC1tY5enyet8iYLzfI46Xj8m3l0KlDigShJqeyjN3mvB6yTOXO5wMc1LW7JY-sMultShvRINSU-aTdMPcIcncukP83t81JrwBz5aJ1jaYFv61zBE5LdV1Xxsp3S2GUR-xpSsnlo4e8KrqM"/>
+                    </div>
+                    <h3 class="font-headline-sm text-[18px] mb-1 group-hover:text-primary transition-colors">The Sunlit Path</h3>
+                    <p class="text-secondary font-body-md text-sm mb-2">Elena Rossi</p>
+                    <p class="font-label-md text-label-md">$34.00</p>
+                </div>
+                <!-- Book Card 3 -->
+                <div class="flex flex-col group cursor-pointer">
+                    <div class="aspect-[3/4] mb-4 overflow-hidden border border-outline-variant/10 bg-white p-2 md:p-4 book-card-hover transition-all duration-300">
+                        <img class="w-full h-full object-cover shadow-sm" data-alt="A classical leather-bound book cover with a deep navy texture and blind-embossed geometric patterns. Titled 'Verses of the North' in a refined serif font. The lighting is low-key, spotlighting the texture of the grain and the depth of the emboss, creating an atmosphere of antique sophistication and quiet study." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoJ-B-KEDMtBI62egqtT5Dfl3M2uiNg_n4_kEzqg_cQmzo1KatdFLgLTz3KTmsaHLI07jDDCm2WXQvV832azDHynORNPiytCIMckvTFqE9Eo-6RdB6jjSJP9iQnZ2nQ58RD1_42qKpJOxkWVBBeaHgNVqhtXfHxAfxKapTtXsXVzAj1Sb2_FKtenylMstchv-Zl_eEU0hXnWpvf1HJ6srA1akmydOZC2QzhdoDuHjdKnchIYErYEdNDLsugFPVywXJWr30aBK6U-M"/>
+                    </div>
+                    <h3 class="font-headline-sm text-[18px] mb-1 group-hover:text-primary transition-colors">Verses of the North</h3>
+                    <p class="text-secondary font-body-md text-sm mb-2">Arvid Holmgren</p>
+                    <p class="font-label-md text-label-md">$45.00</p>
+                </div>
+                <!-- Book Card 4 -->
+                <div class="flex flex-col group cursor-pointer">
+                    <div class="aspect-[3/4] mb-4 overflow-hidden border border-outline-variant/10 bg-white p-2 md:p-4 book-card-hover transition-all duration-300">
+                        <img class="w-full h-full object-cover shadow-sm" data-alt="A modern botanical illustration on a soft cream book cover. The title 'Wild Bloom' is written in a delicate, handwritten script overlaying pressed flower designs. The color palette is earthy and organic, using muted sages and dusty pinks. The image captures the essence of a serene, nature-inspired reading experience in a bright airy studio." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFsW-p4tjM9qM2PFE9O8_PMLdzc1NpyXWiOwLpW2yJh2TEVgoafrbMUMhX0WK9qSoaSgNhUQYqBM0lUEp65BZWVE0d6smk5Cm2jCvm8h8NR4lbu1VcNs-FTOZMxozGJ6TkmKLXnO4wUy3mZswAGVu2xRIh2oHAGoa3dCEGI5OLVHC6QzfGmlPwvWQovR71_FvQdIPFrhQAzkEZu9Ze98Gmp5NTIj7C_8hb1PQ5Cdr7Z3Juvxr5OiY6QblH62Vn4H2SzU8oMZxOhkU"/>
+                    </div>
+                    <h3 class="font-headline-sm text-[18px] mb-1 group-hover:text-primary transition-colors">Wild Bloom</h3>
+                    <p class="text-secondary font-body-md text-sm mb-2">Clara Thorne</p>
+                    <p class="font-label-md text-label-md">$24.00</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Genre Bento Grid -->
+        <section class="bg-surface-container-low py-section-gap overflow-hidden">
+            <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+                <div class="text-center mb-16">
+                    <h2 class="font-headline-md text-headline-md mb-4 italic">Curated Collections</h2>
+                    <p class="text-secondary font-body-md max-w-lg mx-auto">Explore our library through curated lens, from timeless classics to modern inquiries.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4 h-[600px]">
+                    <!-- Fiction -->
+                    <div class="md:col-span-2 md:row-span-2 relative group overflow-hidden cursor-pointer">
+                        <div class="absolute inset-0 bg-primary/40 group-hover:bg-primary/20 transition-all duration-500 z-10"></div>
+                        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A dreamy, cinematic shot of a person reading by a large arched window with soft morning light streaming through. Dust motes dance in the light, and a stack of various novels sits nearby. The style is soft, warm, and romanticized, evoking the feeling of being lost in a fictional world. The color palette features warm beiges and deep navy shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-lBsu78F4WlAN-1eXr2L4t5HeXKpxoSYmP8ep2qoSjxNDhb3i_7R-PKhckZRpPeQ3L5nhhqeWCR42t_q0CXYr0xZBL5zk0pW5MjOHKyQjLgGtqVxqxk8YNKQzbYpXLgmy1Plt3Kikf5CTQKbCZoGiv595FzJfJeQTtaB_CvB039VN-_IFjTzHFkYDWxgVu2wLDsppYiN4ypstmp7VGhQvonUp99qMpHsVVq4NTP-fDQr5NBkQwQan9xBrriiDiZmzZeEf9_a-bEw"/>
+                        <div class="absolute bottom-8 left-8 z-20">
+                            <h3 class="font-display-lg text-white mb-2">Fiction</h3>
+                            <p class="text-white/80 font-label-md uppercase tracking-widest">Stories that stay</p>
+                        </div>
+                    </div>
+                    <!-- History -->
+                    <div class="md:col-span-2 relative group overflow-hidden cursor-pointer">
+                        <div class="absolute inset-0 bg-on-surface-variant/40 group-hover:bg-on-surface-variant/20 transition-all duration-500 z-10"></div>
+                        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Close up of an ancient desk with antique maps, a brass magnifying glass, and several leather-bound history volumes. The lighting is warm and candle-lit, highlighting the rich textures of old paper and wood. The composition is focused and academic, capturing the allure of discovering the past." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDN1qqFa8EyyF2Mu3E9620ehKxCouSLFS5qIqpvSxVyDzK3nDbKxCOrGk99pOd4ED3kDSof0Wa3hcoV6mOGC1DwALH8DEsudEaljTfjgT8MsyTLrfBZ-5AUWXiTRypcAI9BGBqrZZB8xXN6zVw26yFXndPLVsVvVDs2AhNn2PudgfWGjqhZCoan-6yZXuc4D0Ck717uUF1sFHhFDpL6inn2PMBDy5H7qGliP_SiWlTeinOy5osGdSk_jpMg8gJ1MumJ2NfrYOsJvSg"/>
+                        <div class="absolute bottom-8 left-8 z-20">
+                            <h3 class="font-headline-md text-white">History</h3>
+                        </div>
+                    </div>
+                    <!-- Poetry -->
+                    <div class="relative group overflow-hidden cursor-pointer">
+                        <div class="absolute inset-0 bg-tertiary-container/40 group-hover:bg-tertiary-container/20 transition-all duration-500 z-10"></div>
+                        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Minimalist composition of a single white feather resting on a page of hand-written poetry. The lighting is soft and ethereal, using a high-key white-on-white aesthetic. The scene is calm, delicate, and deeply artistic, emphasizing the rhythmic soul of poetic literature." src="https://lh3.googleusercontent.com/aida-public/AB6AXuABMzWbBULlyQz197e7ZjI0bjOVO95ahMs8KASUlaP0VEYJetmBzYbpQCOZ-2Hajhz6INoVbC6AKLXKcDD4VCsKcgCxq9RZP_dJvCsnH3eDic5IMDvStYaZPZVNQib-dtN9LJcfduWAqilOR91HD3_DFAPyVcMMivJHIk3qjZntIUVhYD8gZqsDtPoZhiZ8IO2q1UQnGEG4pcgI30CvB5oBIphb1mX6ERzXeIpbJgHWhc-cfBCwycZZSwFgGiVNjeDI3DitJI_qmAU"/>
+                        <div class="absolute bottom-6 left-6 z-20">
+                            <h3 class="font-headline-sm text-white">Poetry</h3>
+                        </div>
+                    </div>
+                    <!-- Science -->
+                    <div class="relative group overflow-hidden cursor-pointer">
+                        <div class="absolute inset-0 bg-on-primary-container/40 group-hover:bg-on-primary-container/20 transition-all duration-500 z-10"></div>
+                        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A modern scientific laboratory aesthetic featuring abstract glass prisms refracting light into soft rainbows across a sleek, black surface. Nearby is a stack of hardcover science and philosophy books. The look is futuristic, intellectual, and crisp, using sharp focus and cool-toned lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFdX6hoEuYRUc7_MQsLoLDra9GTHWOlQ9EXjRsZAX6FSRe11JcBFYaKfuO6mX7-_0eT-_g7EQ0JesF5uxrVHSiM2OzXFjIge435NfiDwySapm2teE_dJOLS0_34bQ27zLw6_oOoGA2gIuLFjRGhrfMYV2Q89NSmvBhfy2ENKGowXaIty-Opf7Y1uQFbPNR4DnSyslwXbFveaJIBH_-ZfsHS2f6VLYE_5YEHpbrOMyBTXkPVMsRacN4xOCK1lOLzIa7wr9EFywE0QU"/>
+                        <div class="absolute bottom-6 left-6 z-20">
+                            <h3 class="font-headline-sm text-white">Science</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Staff Favorites -->
+        <section class="max-w-container-max mx-auto px-margin-desktop py-section-gap">
+            <div class="flex items-center justify-between mb-12">
+                <h2 class="font-headline-md text-headline-md">Staff Favorites</h2>
+                <div class="flex gap-2">
+                    <button class="w-10 h-10 border border-outline-variant rounded-full flex items-center justify-center hover:bg-on-surface-variant hover:text-white transition-all">
+                        <span class="material-symbols-outlined text-[18px]">chevron_left</span>
+                    </button>
+                    <button class="w-10 h-10 border border-outline-variant rounded-full flex items-center justify-center hover:bg-on-surface-variant hover:text-white transition-all">
+                        <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+                    </button>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-gutter">
+                <!-- Book Card 5 -->
+                <div class="flex flex-col group cursor-pointer">
+                    <div class="aspect-[3/4] mb-4 overflow-hidden border border-outline-variant/10 bg-white p-2 md:p-4 book-card-hover transition-all duration-300">
+                        <img class="w-full h-full object-cover shadow-sm" data-alt="A vintage style book cover with cream background and dark burgundy typography titled 'The Old Oak'. It features a detailed engraving of a majestic oak tree. The mood is nostalgic and grounded, reflecting a high-end classical library aesthetic with soft, directional window lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcHWJEI-8JWpBouy0enJcAjZfctFzWb-T77L8EjmaL6j8PtE4RronQho6EAtNiStxmPzElvQ1Tasf70g2qfQLr7B4E8zV4zEQka2KcJgmMM_fWzG_bWI7Exjlxk1ObddxwYH1oW4Y-TRA8sdY8n5h44UTCjPlRzYYKGRfN8gQDx8DwoyMtqc9nSpNzePcWUbOZb6d-YlYXW-CBdCOXwliOrJkTKI8om_r_ANyZvIaQH-Cn9gOPStt-7jDf4crKTOM7qCdsGuquUH4"/>
+                    </div>
+                    <div class="flex items-center gap-1 mb-1">
+                        <span class="material-symbols-outlined text-[14px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="font-label-md text-[10px] text-secondary">CURATOR'S CHOICE</span>
+                    </div>
+                    <h3 class="font-headline-sm text-[18px] mb-1 group-hover:text-primary transition-colors">The Old Oak</h3>
+                    <p class="text-secondary font-body-md text-sm mb-2">Samuel Greene</p>
+                    <p class="font-label-md text-label-md">$31.00</p>
+                </div>
+                <!-- Book Card 6 -->
+                <div class="flex flex-col group cursor-pointer">
+                    <div class="aspect-[3/4] mb-4 overflow-hidden border border-outline-variant/10 bg-white p-2 md:p-4 book-card-hover transition-all duration-300">
+                        <img class="w-full h-full object-cover shadow-sm" data-alt="A sleek black book cover with a thin, iridescent holographic foil stripe running diagonally across. Titled 'Prism Theory' in a futuristic sans-serif. The lighting reflects the holographic effect, creating a vibrant yet sophisticated professional e-commerce visual." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHi7xAzVofL_0_JYO4Sfa47ELnlQDn1l70f0mn9GEIhk2Jo-5B-KR--gEAeZVccHlHDj_4tVjnlFBH6nFr9wwmxdoJ_ihseLgvJW3qQ1OIFOSnUIJUPomtMU7jmGhM8JhVzyVNVQ_WuA51EdKKlL-XCvlZkPbKmUU5qYpSkcVJ1vTqK5zvQywuVAcb6mVDRVpC04tDFmSRIer-01xkwh9ATlPM-cNne146OKLHBfhbQlNhutISccEZgcpcFxPhLz0icILu7mrCdWk"/>
+                    </div>
+                    <h3 class="font-headline-sm text-[18px] mb-1 group-hover:text-primary transition-colors">Prism Theory</h3>
+                    <p class="text-secondary font-body-md text-sm mb-2">Dr. Maya Lin</p>
+                    <p class="font-label-md text-label-md">$39.50</p>
+                </div>
+                <!-- Book Card 7 -->
+                <div class="flex flex-col group cursor-pointer">
+                    <div class="aspect-[3/4] mb-4 overflow-hidden border border-outline-variant/10 bg-white p-2 md:p-4 book-card-hover transition-all duration-300">
+                        <img class="w-full h-full object-cover shadow-sm" data-alt="An elegant ivory book cover with a minimalist blind-debossed silhouette of a grand manor. The title 'Haunted Halls' is printed in a thin, spaced-out serif. The mood is gothic yet restrained, using soft grey shadows to create depth on the textured paper surface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCx-BPHqDVuwS5lCc01DukS87jKSEDesY4EUQZ81tq_hVUzjehCbN1ooFVjKgpFUPNp2lKiA_CAGR8A8nXjds_WcxL7369FEnxuR6BowVS-svdXx64QI_bxX4zmmvfXqX0tXTjfFSXMZBVbh8m6GmmH5IAEzPfZ2RBL4T7PaD8waH6BhXbE7mDPycTZmnOeLMhZnuBdpTbNLs8VOpwJ_ftmUNt6HzbzU-DffQzwvpPmKAcIqzysXURZGeHyOumKme3-ofw_eIqyrmc"/>
+                    </div>
+                    <h3 class="font-headline-sm text-[18px] mb-1 group-hover:text-primary transition-colors">Haunted Halls</h3>
+                    <p class="text-secondary font-body-md text-sm mb-2">Victoria Black</p>
+                    <p class="font-label-md text-label-md">$29.00</p>
+                </div>
+                <!-- Book Card 8 -->
+                <div class="flex flex-col group cursor-pointer">
+                    <div class="aspect-[3/4] mb-4 overflow-hidden border border-outline-variant/10 bg-white p-2 md:p-4 book-card-hover transition-all duration-300">
+                        <img class="w-full h-full object-cover shadow-sm" data-alt="A beautiful linen-covered book in a soft sage green with white silk-screened illustrations of medicinal herbs. Titled 'The Healer's Garden'. The presentation is organic and serene, captured in a bright conservatory with plants in the blurred background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqitYzfBvyGbtY3A5a8wOKKukClZmMs5jqRwkOYwjOUA-alUqD39_gVoTp8gWRUAfC8izrWqUWWyj_bwd1TFxOZ4KvSc1uoOOmKqjYJlewa0vfS76SB38NYtk8EUXI5oGL9hdQghpRCorQuCF6Id6xGfju7s2CqisWifd8Z6fbb8bqGe41ya2ankXFTAr-JL5wvfk4-NFYLJym-Zjvm23PobzkTYPF2I8uF3hUBH9KdCLq1IELSeGLG9V7i5_JYaGGwWWszPu3Lus"/>
+                    </div>
+                    <h3 class="font-headline-sm text-[18px] mb-1 group-hover:text-primary transition-colors">The Healer's Garden</h3>
+                    <p class="text-secondary font-body-md text-sm mb-2">Thomas Thorne</p>
+                    <p class="font-label-md text-label-md">$35.00</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission / About Section -->
+        <section class="max-w-4xl mx-auto px-margin-mobile text-center py-section-gap border-t border-outline-variant/10">
+            <span class="material-symbols-outlined text-4xl text-primary mb-8">menu_book</span>
+            <h2 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-8 italic">Curated for the Discerning Reader</h2>
+            <p class="font-body-lg text-body-lg text-secondary leading-relaxed mb-10">
+                At Folio &amp; Quill, we believe books are not just data; they are physical artifacts of human thought. We meticulously source limited editions, artisan pressings, and the finest contemporary works to ensure your library is a reflection of your intellectual curiosity.
+            </p>
+            <div class="flex justify-center gap-12">
+                <div class="flex flex-col items-center">
+                    <span class="font-headline-md text-primary">12k+</span>
+                    <span class="font-label-md text-secondary uppercase tracking-widest text-[10px]">Volumes Curated</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="font-headline-md text-primary">45</span>
+                    <span class="font-label-md text-secondary uppercase tracking-widest text-[10px]">Global Curators</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="font-headline-md text-primary">100%</span>
+                    <span class="font-label-md text-secondary uppercase tracking-widest text-[10px]">Eco-Conscious Shipping</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="bg-primary-container text-on-primary py-24 px-margin-mobile">
+            <div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="font-display-lg text-white mb-4">The Weekly Reader</h2>
+                    <p class="text-on-primary-container font-body-lg">Essays on literature, upcoming releases, and exclusive curator notes delivered to your inbox every Sunday morning.</p>
+                </div>
+                <form class="flex flex-col sm:flex-row gap-4" onsubmit="event.preventDefault(); alert('Welcome to the library, reader.');">
+                    <input class="flex-grow bg-white/5 border border-white/20 rounded-sm px-6 py-4 text-white placeholder:text-white/40 focus:outline-none focus:ring-1 focus:ring-on-tertiary-container font-headline-sm italic" placeholder="Enter your email address" required="" type="email"/>
+                    <button class="bg-white text-primary px-10 py-4 font-label-md text-label-md hover:bg-secondary-fixed transition-colors" type="submit">Subscribe</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-surface-container-low dark:bg-surface-container-highest border-t border-outline-variant/10">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-16 max-w-container-max mx-auto">
+            <!-- Brand Info -->
+            <div class="md:col-span-1">
+                <h2 class="font-headline-sm text-headline-sm text-primary dark:text-inverse-primary mb-6">Folio &amp; Quill</h2>
+                <p class="text-secondary font-body-md mb-8">Crafting a sanctuary for readers in the digital age. Your curated library begins here.</p>
+                <div class="flex gap-4">
+                    <a class="w-8 h-8 rounded-full border border-outline-variant flex items-center justify-center hover:bg-primary hover:text-white transition-all" href="#"><span class="material-symbols-outlined text-sm">share</span></a>
+                    <a class="w-8 h-8 rounded-full border border-outline-variant flex items-center justify-center hover:bg-primary hover:text-white transition-all" href="#"><span class="material-symbols-outlined text-sm">public</span></a>
+                    <a class="w-8 h-8 rounded-full border border-outline-variant flex items-center justify-center hover:bg-primary hover:text-white transition-all" href="#"><span class="material-symbols-outlined text-sm">alternate_email</span></a>
+                </div>
+            </div>
+            <!-- Quick Links -->
+            <div>
+                <h4 class="font-label-md text-label-md text-on-surface mb-6 uppercase tracking-widest">Library Services</h4>
+                <ul class="space-y-4">
+                    <li><a class="text-secondary font-body-md hover:text-primary transition-all duration-300 underline decoration-1 underline-offset-4 decoration-transparent hover:decoration-primary" href="#">About Our Library</a></li>
+                    <li><a class="text-secondary font-body-md hover:text-primary transition-all duration-300 underline decoration-1 underline-offset-4 decoration-transparent hover:decoration-primary" href="#">Shipping &amp; Returns</a></li>
+                    <li><a class="text-secondary font-body-md hover:text-primary transition-all duration-300 underline decoration-1 underline-offset-4 decoration-transparent hover:decoration-primary" href="#">Membership Program</a></li>
+                    <li><a class="text-secondary font-body-md hover:text-primary transition-all duration-300 underline decoration-1 underline-offset-4 decoration-transparent hover:decoration-primary" href="#">Gift Cards</a></li>
                 </ul>
-                <div class="flex flex-wrap gap-3 text-sm leading-normal">
-                    <a href="#" class="inline-flex items-center gap-1 dark:bg-[#eeeeec] dark:border-[#eeeeec] dark:text-[#1C1C1A] dark:hover:bg-white dark:hover:border-white hover:bg-black hover:border-black px-5 py-1.5 bg-[#1b1b18] rounded-sm border border-black text-white text-sm leading-normal">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
-                        </svg>
-                        Browse
-                    </a>
-                    <a href="#" class="inline-flex items-center gap-1 px-5 py-1.5 border border-[#19140035] dark:border-[#3E3E3A] rounded-sm text-sm leading-normal hover:border-black dark:hover:border-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
-                        </svg>
-                        Cart (0)
-                    </a>
-                </div>
             </div>
-
-            {{-- HERO WITH BOOKS / VISUAL --}}
-            <div class="bg-[#fff2f2] dark:bg-[#1D0002] relative lg:-ml-px -mb-px lg:mb-0 rounded-t-lg lg:rounded-t-none lg:rounded-r-lg aspect-[335/376] lg:aspect-auto w-full lg:w-[438px] shrink-0 overflow-hidden flex items-center justify-center">
-                {{-- Book-ish visual with stacked covers --}}
-                <div class="relative w-full h-full flex items-center justify-center">
-                    {{-- main book --}}
-                    <div class="relative w-52 h-64 rounded-md shadow-2xl rotate-[-6deg] bg-[#f5e6d3] dark:bg-[#2a1f1a] border border-[#d4c5b2] dark:border-[#4a3a30] transition-transform hover:scale-105 duration-300">
-                        <div class="absolute top-4 left-4 right-4 bottom-4 border-2 border-[#d4c5b2] dark:border-[#4a3a30] rounded-sm flex items-center justify-center flex-col p-2 text-center">
-                            <span class="text-xs font-bold text-[#1b1b18] dark:text-[#EDEDEC] uppercase tracking-wider">The Art of</span>
-                            <span class="text-lg font-bold text-[#1b1b18] dark:text-[#EDEDEC] leading-tight">Typography</span>
-                            <span class="text-[10px] text-[#706f6c] dark:text-[#A1A09A] mt-2">— 2025 Edition —</span>
-                            <div class="mt-4 w-12 h-0.5 bg-[#f53003] dark:bg-[#FF4433]"></div>
-                        </div>
-                    </div>
-                    {{-- secondary books --}}
-                    <div class="absolute w-44 h-56 rounded-md shadow-lg rotate-[12deg] bg-[#e8d8c8] dark:bg-[#33281f] border border-[#d4c5b2] dark:border-[#4a3a30] right-8 bottom-8 transition-transform hover:scale-105 duration-300 hidden sm:block">
-                        <div class="absolute inset-0 flex items-center justify-center p-3 text-center">
-                            <span class="text-xs font-medium text-[#1b1b18] dark:text-[#EDEDEC]">Modern<br>Poetry</span>
-                        </div>
-                    </div>
-                    <div class="absolute w-32 h-40 rounded-md shadow-lg rotate-[-15deg] bg-[#d9c9b9] dark:bg-[#2d231c] border border-[#d4c5b2] dark:border-[#4a3a30] left-6 top-8 transition-transform hover:scale-105 duration-300 hidden sm:block">
-                        <div class="absolute inset-0 flex items-center justify-center p-2 text-center">
-                            <span class="text-[10px] font-medium text-[#1b1b18] dark:text-[#EDEDEC]">Classics</span>
-                        </div>
-                    </div>
-                    {{-- decorative dots --}}
-                    <div class="absolute bottom-4 left-4 flex gap-1">
-                        <span class="w-1.5 h-1.5 rounded-full bg-[#f53003] dark:bg-[#FF4433]"></span>
-                        <span class="w-1.5 h-1.5 rounded-full bg-[#f53003] dark:bg-[#FF4433] opacity-60"></span>
-                        <span class="w-1.5 h-1.5 rounded-full bg-[#f53003] dark:bg-[#FF4433] opacity-30"></span>
-                    </div>
-                </div>
-
-                {{-- overlay shadow --}}
-                <div class="absolute inset-0 rounded-t-lg lg:rounded-t-none lg:rounded-r-lg shadow-[inset_0px_0px_0px_1px_rgba(26,26,0,0.16)] dark:shadow-[inset_0px_0px_0px_1px_#fffaed2d]"></div>
+            <!-- Shop Categories -->
+            <div>
+                <h4 class="font-label-md text-label-md text-on-surface mb-6 uppercase tracking-widest">Inquiries</h4>
+                <ul class="space-y-4">
+                    <li><a class="text-secondary font-body-md hover:text-primary transition-all duration-300 underline decoration-1 underline-offset-4 decoration-transparent hover:decoration-primary" href="#">Contact Curator</a></li>
+                    <li><a class="text-secondary font-body-md hover:text-primary transition-all duration-300 underline decoration-1 underline-offset-4 decoration-transparent hover:decoration-primary" href="#">Wholesale Orders</a></li>
+                    <li><a class="text-secondary font-body-md hover:text-primary transition-all duration-300 underline decoration-1 underline-offset-4 decoration-transparent hover:decoration-primary" href="#">Rare Finds Request</a></li>
+                    <li><a class="text-secondary font-body-md hover:text-primary transition-all duration-300 underline decoration-1 underline-offset-4 decoration-transparent hover:decoration-primary" href="#">Privacy Policy</a></li>
+                </ul>
             </div>
+            <!-- Address -->
+            <div>
+                <h4 class="font-label-md text-label-md text-on-surface mb-6 uppercase tracking-widest">The Sanctuary</h4>
+                <p class="text-secondary font-body-md italic leading-relaxed">
+                    221B Literary Row<br/>
+                    Suite 400, Curated Park<br/>
+                    New York, NY 10001
+                </p>
+                <p class="mt-4 text-primary font-label-md">Open Daily: 9am — 9pm</p>
+            </div>
+        </div>
+        <div class="border-t border-outline-variant/10 py-8 px-margin-mobile text-center">
+            <p class="font-label-md text-label-md text-secondary opacity-60">© 2024 Folio &amp; Quill. Curating the world's finest literature. All rights reserved.</p>
+        </div>
+    </footer>
 
-        </main>
-    </div>
+    <script>
+        // Smooth scroll for anchor links (already handled by scroll-smooth class on html)
+        // Plus intersection observer for book cards
+        const observerOptions = {
+            threshold: 0.1
+        };
 
-    @if (Route::has('login'))
-        <div class="h-14.5 hidden lg:block"></div>
-    @endif
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-8');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.book-card-hover').forEach(card => {
+            card.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-8');
+            observer.observe(card);
+        });
+    </script>
 </body>
 </html>
