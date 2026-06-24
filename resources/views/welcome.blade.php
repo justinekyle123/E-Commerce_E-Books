@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -50,13 +51,13 @@
 
             {{-- BOOKSHOP CONTENT --}}
             <div class="text-[13px] leading-[20px] flex-1 p-6 pb-12 lg:p-20 bg-white dark:bg-[#161615] dark:text-[#EDEDEC] shadow-[inset_0px_0px_0px_1px_rgba(26,26,0,0.16)] dark:shadow-[inset_0px_0px_0px_1px_#fffaed2d] rounded-bl-lg rounded-br-lg lg:rounded-tl-lg lg:rounded-br-none">
-                <h1 class="mb-1 font-medium flex items-center gap-2">
+                <div class="flex items-center gap-2 mb-1">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 text-[#f53003] dark:text-[#FF4433]">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
                     </svg>
-                    Bookshop
-                </h1>
-                <p class="mb-2 text-[#706f6c] dark:text-[#A1A09A]">Curated stories, timeless editions.<br>Start your literary journey here.</p>
+                    <h1 class="font-medium">The Book Nook</h1>
+                </div>
+                <p class="mb-2 text-[#706f6c] dark:text-[#A1A09A]">Discover stories that stay with you.<br>New arrivals, classics &amp; hidden gems.</p>
                 <ul class="flex flex-col mb-4 lg:mb-6">
                     <li class="flex items-center gap-4 py-2 relative before:border-l before:border-[#e3e3e0] dark:before:border-[#3E3E3A] before:top-1/2 before:bottom-0 before:left-[0.4rem] before:absolute">
                         <span class="relative py-1 bg-white dark:bg-[#161615]">
@@ -65,9 +66,9 @@
                             </span>
                         </span>
                         <span>
-                            Bestseller list
+                            Weekly bestsellers
                             <a href="#" class="inline-flex items-center space-x-1 font-medium underline underline-offset-4 text-[#f53003] dark:text-[#FF4433] ml-1">
-                                <span>Explore</span>
+                                <span>See list</span>
                                 <svg width="10" height="11" viewBox="0 0 10 11" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-2.5 h-2.5">
                                     <path d="M7.70833 6.95834V2.79167H3.54167M2.5 8L7.5 3.00001" stroke="currentColor" stroke-linecap="square"/>
                                 </svg>
@@ -81,7 +82,7 @@
                             </span>
                         </span>
                         <span>
-                            Rare & collectible
+                            Signed editions
                             <a href="#" class="inline-flex items-center space-x-1 font-medium underline underline-offset-4 text-[#f53003] dark:text-[#FF4433] ml-1">
                                 <span>Shop now</span>
                                 <svg width="10" height="11" viewBox="0 0 10 11" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-2.5 h-2.5">
@@ -91,29 +92,27 @@
                         </span>
                     </li>
                 </ul>
-                <ul class="flex gap-3 text-sm leading-normal">
-                    <li>
-                        <a href="#" class="inline-block dark:bg-[#eeeeec] dark:border-[#eeeeec] dark:text-[#1C1C1A] dark:hover:bg-white dark:hover:border-white hover:bg-black hover:border-black px-5 py-1.5 bg-[#1b1b18] rounded-sm border border-black text-white text-sm leading-normal">
-                            View collection
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="inline-block px-5 py-1.5 border border-[#19140035] dark:border-[#3E3E3A] rounded-sm text-sm leading-normal hover:border-black dark:hover:border-white">
-                            <span class="flex items-center gap-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
-                                </svg>
-                                Cart
-                            </span>
-                        </a>
-                    </li>
-                </ul>
+                <div class="flex flex-wrap gap-3 text-sm leading-normal">
+                    <a href="#" class="inline-flex items-center gap-1 dark:bg-[#eeeeec] dark:border-[#eeeeec] dark:text-[#1C1C1A] dark:hover:bg-white dark:hover:border-white hover:bg-black hover:border-black px-5 py-1.5 bg-[#1b1b18] rounded-sm border border-black text-white text-sm leading-normal">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+                        </svg>
+                        Browse
+                    </a>
+                    <a href="#" class="inline-flex items-center gap-1 px-5 py-1.5 border border-[#19140035] dark:border-[#3E3E3A] rounded-sm text-sm leading-normal hover:border-black dark:hover:border-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+                        </svg>
+                        Cart (0)
+                    </a>
+                </div>
             </div>
 
             {{-- HERO WITH BOOKS / VISUAL --}}
             <div class="bg-[#fff2f2] dark:bg-[#1D0002] relative lg:-ml-px -mb-px lg:mb-0 rounded-t-lg lg:rounded-t-none lg:rounded-r-lg aspect-[335/376] lg:aspect-auto w-full lg:w-[438px] shrink-0 overflow-hidden flex items-center justify-center">
                 {{-- Book-ish visual with stacked covers --}}
                 <div class="relative w-full h-full flex items-center justify-center">
+                    {{-- main book --}}
                     <div class="relative w-52 h-64 rounded-md shadow-2xl rotate-[-6deg] bg-[#f5e6d3] dark:bg-[#2a1f1a] border border-[#d4c5b2] dark:border-[#4a3a30] transition-transform hover:scale-105 duration-300">
                         <div class="absolute top-4 left-4 right-4 bottom-4 border-2 border-[#d4c5b2] dark:border-[#4a3a30] rounded-sm flex items-center justify-center flex-col p-2 text-center">
                             <span class="text-xs font-bold text-[#1b1b18] dark:text-[#EDEDEC] uppercase tracking-wider">The Art of</span>
@@ -122,6 +121,7 @@
                             <div class="mt-4 w-12 h-0.5 bg-[#f53003] dark:bg-[#FF4433]"></div>
                         </div>
                     </div>
+                    {{-- secondary books --}}
                     <div class="absolute w-44 h-56 rounded-md shadow-lg rotate-[12deg] bg-[#e8d8c8] dark:bg-[#33281f] border border-[#d4c5b2] dark:border-[#4a3a30] right-8 bottom-8 transition-transform hover:scale-105 duration-300 hidden sm:block">
                         <div class="absolute inset-0 flex items-center justify-center p-3 text-center">
                             <span class="text-xs font-medium text-[#1b1b18] dark:text-[#EDEDEC]">Modern<br>Poetry</span>
